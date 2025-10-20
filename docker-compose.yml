@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    container_name: traceroute-test-api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+    environment:
+      - PORT=8080
+      - API_USER=user
+      - API_PASSWORD=password
+      - IP_HOST_MAPS=127.0.0.1:example.com
+      - API_URL=https://example.com
+    command: python app/main.py
